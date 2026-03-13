@@ -34,7 +34,12 @@ use hex::FromHex;
 #[cfg_attr(
     feature = "rkyv",
     derive(rkyv::Archive, rkyv::Serialize, rkyv::Deserialize),
-    rkyv(derive(Debug))
+    rkyv(
+        derive(Debug),
+        archive_bounds(
+            <[u8; N] as rkyv::Archive>::Archived: core::fmt::Debug,
+        )
+    )
 )]
 #[repr(transparent)]
 pub struct FixedBytes<const N: usize>(#[into_iterator(owned, ref, ref_mut)] pub [u8; N]);

@@ -1,8 +1,5 @@
 use super::*;
-use core::{
-    fmt::{Debug, Formatter},
-    hash::Hash,
-};
+use core::hash::Hash;
 
 impl From<ArchivedAddress> for Address {
     fn from(archived: ArchivedAddress) -> Self {
@@ -10,11 +7,11 @@ impl From<ArchivedAddress> for Address {
     }
 }
 
-impl Debug for ArchivedAddress {
-    fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
-        Debug::fmt(&Address::from(self.0.0), f)
-    }
-}
+// impl Debug for ArchivedAddress {
+//     fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
+//         Debug::fmt(&Address::from(self.0.0), f)
+//     }
+// }
 
 impl From<ArchivedBloom> for Bloom {
     fn from(archived: ArchivedBloom) -> Self {
@@ -22,11 +19,11 @@ impl From<ArchivedBloom> for Bloom {
     }
 }
 
-impl Debug for ArchivedBloom {
-    fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
-        Debug::fmt(&Bloom::from(self.0.0), f)
-    }
-}
+// impl Debug for ArchivedBloom {
+//     fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
+//         Debug::fmt(&Bloom::from(self.0.0), f)
+//     }
+// }
 
 impl<const N: usize> From<ArchivedFixedBytes<N>> for FixedBytes<N> {
     fn from(archived: ArchivedFixedBytes<N>) -> Self {
@@ -34,11 +31,11 @@ impl<const N: usize> From<ArchivedFixedBytes<N>> for FixedBytes<N> {
     }
 }
 
-impl<const N: usize> Debug for ArchivedFixedBytes<N> {
-    fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
-        Debug::fmt(&FixedBytes(self.0), f)
-    }
-}
+// impl<const N: usize> Debug for ArchivedFixedBytes<N> {
+//     fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
+//         Debug::fmt(&FixedBytes(self.0), f)
+//     }
+// }
 
 impl<const N: usize> Copy for ArchivedFixedBytes<N> {}
 
